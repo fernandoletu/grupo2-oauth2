@@ -34,39 +34,68 @@ grupo2-oauth2-2021-12-13-postman_collection.json
 
 Para generar un token para gestionar los cursos, enviar una peticion al siguiente endpoint:
 
----
+```bash
+POST
 
-Method=POST
-URL=http://localhost:8000/oauth/token
+http://localhost:8000/oauth/token
 
-Params (form data)=
-grant_type:password
-client_id:X
-client_secret:X
-password:1234
-username:prueba@prueba.prueba
-
----
+Params (Form data):
+grant_type: password
+client_id: X
+client_secret: X
+password: 1234
+username: prueba@prueba.prueba
+```
 
 Luego usar "access_token" de la respuesta del servidor
 como Bearer Token para los siguientes endpoints:
 
+Listar todos los cursos
+```bash
 GET
 
 http://localhost:8000/course/getAll
+```
 
+Mostrar datos de un curso en particular
+```bash
 GET
 
-http://localhost:8000/course/getData (params: id)
+http://localhost:8000/course/getData
 
+Params (URL parameter):
+id: X
+```
+
+Crear un curso
+```bash
 POST
 
-http://localhost:8000/course/create (params: nombre, descripcion)
+http://localhost:8000/course/create
 
+Params (Form data):
+nombre: X,
+descripcion: X
+```
+
+Editar un curso
+```bash
 PUT
 
-http://localhost:8000/course/update (params: id, nombre, descripcion)
+http://localhost:8000/course/update
 
+Params (Form data):
+id: X,
+nombre: X,
+descripcion: X
+```
+
+Eliminar un curso
+```bash
 DELETE
 
-http://localhost:8000/course/delete (params: id)
+http://localhost:8000/course/delete
+
+Params (Form data):
+id: X
+```
